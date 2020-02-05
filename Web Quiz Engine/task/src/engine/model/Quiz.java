@@ -1,4 +1,4 @@
-package model;
+package engine.model;
 
 import java.util.Arrays;
 
@@ -6,6 +6,9 @@ public class Quiz {
     private String title;
     private String text;
     private String[] options;
+
+    public Quiz() {
+    }
 
     public Quiz(String title, String text, String[] options) {
         this.title = title;

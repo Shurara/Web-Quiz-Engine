@@ -1,8 +1,11 @@
-package model;
+package engine.model;
 
 public class Answer {
     private boolean success;
     private String feedback;
+
+    public Answer() {
+    }
 
     public Answer(boolean success, String feedback) {
         this.success = success;

@@ -1,6 +1,6 @@
 <h2>Description</h2>
 
-<p>At this stage, you will improve the web service to create, get and solve lots of quizzes, not just a single one. All quizzes should be stored in the service's memory, without an external storage.</p>
+<p>At this stage, you will improve the web engine.service to create, get and solve lots of quizzes, not just a single one. All quizzes should be stored in the engine.service's memory, without an external storage.</p>
 
 <p>The format of requests and responses will be similar to the first stage, but you will make the API more REST-friendly and extendable. Each of the four possible operations is described below.</p>
 
@@ -32,7 +32,7 @@
 
 <p>The <code>id</code> field is a generated unique integer identifier for the quiz. Also, the response may or may not include the <code>answer</code> field depending on your wishes. This is not very important for this operation.</p>
 
-<p>At this moment, it is admissible if a creation request does not contain some quiz data. In the next stages, we will improve the service to avoid some server errors.</p>
+<p>At this moment, it is admissible if a creation request does not contain some quiz data. In the next stages, we will improve the engine.service to avoid some server errors.</p>
 
 <h2>Get a quiz by id</h2>
 
@@ -53,7 +53,7 @@
 
 <h2>Get all quizzes</h2>
 
-<p>To get all existing quizzes in the service, the client sends the <code>GET</code> request to <code>/api/quizzes</code>.</p>
+<p>To get all existing quizzes in the engine.service, the client sends the <code>GET</code> request to <code>/api/quizzes</code>.</p>
 
 <p>The response contains a JSON array of quizzes like the following:</p>
 
@@ -74,7 +74,7 @@
 
 <p>[ALERT-warning]The response <strong>must not</strong> include the <code>answer</code> field, otherwise, any user will be able to find the correct answer for any quiz.[/ALERT]</p>
 
-<p>If there are no quizzes, it the service returns an empty JSON array: <code>[]</code>.</p>
+<p>If there are no quizzes, it the engine.service returns an empty JSON array: <code>[]</code>.</p>
 
 <p>In both cases, the status code is <code>200 (OK)</code>.</p>
 
@@ -82,7 +82,7 @@
 
 <p>To solve the quiz, the client sends a POST request to <code>/api/quizzes/{id}/solve</code> and passes the <code>answer</code> parameter in the content. This parameter is the index of a chosen option from <code>options</code> array. As before, it starts from zero.</p>
 
-<p>The service returns a JSON with two fields: <code>success</code> (<code>true</code> or <code>false</code>) and <code>feedback</code> (just a string). There are three possible responses.</p>
+<p>The engine.service returns a JSON with two fields: <code>success</code> (<code>true</code> or <code>false</code>) and <code>feedback</code> (just a string). There are three possible responses.</p>
 
 <ul>
 	<li>If the passed answer is correct (e.g., <code>POST</code> to <code>/api/quizzes/1/solve</code> with content <code>answer=2</code>):</li>

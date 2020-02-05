@@ -1,8 +1,8 @@
 <h2>Description</h2>
 
-<p>Currently, your service allows creating new quizzes, but there may be problems if the client didn't provide all the quiz data. In such cases, the service will create an incorrect unsolvable quiz which is very frustrating for those who are trying to solve it.</p>
+<p>Currently, your engine.service allows creating new quizzes, but there may be problems if the client didn't provide all the quiz data. In such cases, the engine.service will create an incorrect unsolvable quiz which is very frustrating for those who are trying to solve it.</p>
 
-<p>At this stage, you should fix this so that the service does not accept incorrect quizzes. Another task is to make quizzes more interesting by supporting the arbitrary number of correct options (from zero to all). It means that to solve a quiz, the client needs to send all correct options at once, or zero if all options are wrong.</p>
+<p>At this stage, you should fix this so that the engine.service does not accept incorrect quizzes. Another task is to make quizzes more interesting by supporting the arbitrary number of correct options (from zero to all). It means that to solve a quiz, the client needs to send all correct options at once, or zero if all options are wrong.</p>
 
 <p>Here is a few resources where you can read how to validate data in the API:</p>
 
@@ -54,7 +54,7 @@
 
 <p>It is also possible to send an empty array <code>[]</code> since some quizzes may not have correct options.</p>
 
-<p>The service returns a JSON with two fields: <code>success</code> (<code>true</code> or <code>false</code>) and <code>feedback</code> (just a string). There are three possible responses.</p>
+<p>The engine.service returns a JSON with two fields: <code>success</code> (<code>true</code> or <code>false</code>) and <code>feedback</code> (just a string). There are three possible responses.</p>
 
 <ul>
 	<li>If the passed answer is correct:</li>

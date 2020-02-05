@@ -459,21 +459,21 @@ files:
     management.endpoints.web.exposure.include=*
     management.endpoint.shutdown.enabled=true
   learner_created: false
-- name: src/service/QuizService.java
+- name: src/engine/controller/QuizController.java
   visible: true
   learner_created: true
-- name: src/service/AnswerService.java
+- name: src/engine/service/QuizService.java
   visible: true
   learner_created: true
-- name: src/model/Quiz.java
+- name: src/engine/service/AnswerService.java
   visible: true
   learner_created: true
-- name: src/model/Answer.java
+- name: src/engine/model/Quiz.java
   visible: true
   learner_created: true
-- name: src/controller/QuizController.java
+- name: src/engine/model/Answer.java
   visible: true
   learner_created: true
 feedback_link: https://hyperskill.org/projects/91/stages/504/implement
-status: Failed
+status: Solved
 record: -1
