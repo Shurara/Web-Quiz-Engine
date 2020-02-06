@@ -575,6 +575,163 @@ files:
     management.endpoints.web.exposure.include=*
     management.endpoint.shutdown.enabled=true
   learner_created: false
+- name: src/engine/model/Answer.java
+  visible: true
+  text: |
+    package engine.model;
+
+    public class Answer {
+        private boolean success;
+        private String feedback;
+
+        public Answer() {
+        }
+
+        public Answer(boolean success, String feedback) {
+            this.success = success;
+            this.feedback = feedback;
+        }
+
+        public boolean isSuccess() {
+            return success;
+        }
+
+        public void setSuccess(boolean success) {
+            this.success = success;
+        }
+
+        public String getFeedback() {
+            return feedback;
+        }
+
+        public void setFeedback(String feedback) {
+            this.feedback = feedback;
+        }
+    }
+  learner_created: true
+- name: src/engine/service/QuizService.java
+  visible: true
+  text: |
+    package engine.service;
+
+    import engine.model.Quiz;
+    import org.springframework.stereotype.Service;
+
+    @Service
+    public class QuizService {
+
+        public Quiz createQuiz() {
+            return new Quiz("The Java Logo",
+                    "What is depicted on the Java logo?",
+                    new String[]{"Robot", "Tea leaf", "Cup of coffee", "Bug"});
+        }
+    }
+  learner_created: true
+- name: src/engine/model/Quiz.java
+  visible: true
+  text: |
+    package engine.model;
+
+    import java.util.Arrays;
+
+    public class Quiz {
+        private String title;
+        private String text;
+        private String[] options;
+
+        public Quiz() {
+        }
+
+        public Quiz(String title, String text, String[] options) {
+            this.title = title;
+            this.text = text;
+            this.options = options;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        public String getText() {
+            return text;
+        }
+
+        public void setText(String text) {
+            this.text = text;
+        }
+
+        public String[] getOptions() {
+            return options;
+        }
+
+        public void setOptions(String[] options) {
+            this.options = options;
+        }
+
+        @Override
+        public String toString() {
+            return "{" +
+                    "title='" + title + '\'' +
+                    ", text='" + text + '\'' +
+                    ", options=" + Arrays.toString(options) +
+                    '}';
+        }
+    }
+  learner_created: true
+- name: src/engine/controller/QuizController.java
+  visible: true
+  text: |
+    package engine.controller;
+
+
+    import engine.model.Answer;
+    import engine.model.Quiz;
+    import engine.service.AnswerService;
+    import engine.service.QuizService;
+    import org.springframework.beans.factory.annotation.Autowired;
+    import org.springframework.web.bind.annotation.*;
+
+    import java.util.ArrayList;
+    import java.util.List;
+
+    @RestController
+    @RequestMapping("/api/quiz")
+    public class QuizController {
+
+        @Autowired
+        private QuizService quizService;
+
+        @Autowired
+        private AnswerService answerService;
+
+
+        @GetMapping
+        public Quiz getQuiz() {
+            return quizService.createQuiz();
+        }
+
+
+        @PostMapping()
+        public Answer checkAnswer(@RequestParam(name = "answer") int variant) {
+            return answerService.createAnswer(variant);
+        }
+
+
+    }
+  learner_created: true
+- name: src/engine/dao/Quizzes.java
+  visible: true
+  learner_created: true
+- name: src/engine/dao/QuizDao.java
+  visible: true
+  learner_created: true
+- name: src/engine/dao/QuizDaoImpl.java
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/91/stages/505/implement
-status: Unchecked
+status: Failed
 record: -1

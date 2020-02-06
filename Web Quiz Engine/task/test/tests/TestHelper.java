@@ -123,6 +123,10 @@ public class TestHelper {
         }
     }
 
+    static JsonElement getJson(String json) {
+        return new JsonParser().parse(json);
+    }
+
     static private String constructUrl(String address) {
         if (!address.startsWith("/")) {
             address = "/" + address;
